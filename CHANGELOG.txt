@@ -1,0 +1,16 @@
+
+# Version 1.0.2
+
+This update has a few bug fixes 
+
+#### Fixed
+* A timing error that caused the XRPLib update to get stuck at 34% or 64%
+* XRPCode now updates the MicroPython and then XRPLib
+* Fixed escape sequences getting lost while using the keyboard commands with the REPL in the Shell window 
+
+
+#### Getting help
+* There are support forums. To find them click on 'User Guide' from the 'Help' menu and scroll to the bottom of the introduction page.
+
+
+
