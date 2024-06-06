@@ -5,7 +5,7 @@
     height: 100%;
     background-color: white;
     color: black;
-    font-family: "Comic Sans MS";
+    font-family: "Roboto";
     font-size: 13px;
 }
 .fs_storage_bar_parent{
@@ -20,7 +20,7 @@
     position: absolute;
     top: 0;
     color: black;
-    font-family: "Comic Sans MS";
+    font-family: "Roboto";
     font-size: 13px;
     overflow: visible;
     white-space: nowrap;
