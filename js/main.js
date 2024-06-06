@@ -9,6 +9,11 @@ const showChangelogVersion = "1.0.2";  //update all instances of ?version= in th
 window.latestMicroPythonVersion = [1, 20, 0];
 window.xprID = "";
 
+var hiddenrick = true;
+for (var i = 1; i <= 12; i++){
+    document.getElementById("rick"+i).hidden = true;
+}
+
 
 const layoutSaveKey = "layout";
 
@@ -280,7 +285,19 @@ document.getElementById("Nuke").onclick = (event) =>{
 }
 
 document.getElementById("Rick").onclick = (event) =>{
-    document.getElementById("rick").hidden = true;
+    if (hiddenrick){
+        for (var i = 1; i <= 12; i++){
+            document.getElementById("rick"+i).hidden = false;
+        }
+        hiddenrick= true;
+    }
+    else{
+        for (var i = 1; i <= 12; i++){
+            document.getElementById("rick"+i).hidden = true;
+        }
+        hiddenrick = false;
+    }
+    
 }
 
 document.getElementById("IDFileExport").onclick = (event) =>{
