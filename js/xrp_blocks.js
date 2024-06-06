@@ -739,7 +739,7 @@ Blockly.Blocks['pestolink_get_button'] = {
 
 Blockly.Blocks['text_to_num']={
   init: function() {
-    this.appendValueInput("text")
+    this.appendValueInput("TEXT")
       .setCheck("String")
       .appendField("Text to Number");
     this.setOutput(true, null);
