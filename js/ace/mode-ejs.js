@@ -1333,7 +1333,7 @@ var propertyMap = {
     "display": { "none": 1, "block": 1, "inline": 1, "inline-block": 1, "table-cell": 1 },
     "empty-cells": { "show": 1, "hide": 1 },
     "float": { "left": 1, "right": 1, "none": 1 },
-    "font-family": { "Arial": 2, ""Roboto"": 2, "Consolas": 2, "Courier New": 2, "Courier": 2, "Georgia": 2, "Monospace": 2, "Sans-Serif": 2, "Segoe UI": 2, "Tahoma": 2, "Times New Roman": 2, "Trebuchet MS": 2, "Verdana": 1 },
+    "font-family": { "Arial": 2, "Comic Sans MS": 2, "Consolas": 2, "Courier New": 2, "Courier": 2, "Georgia": 2, "Monospace": 2, "Sans-Serif": 2, "Segoe UI": 2, "Tahoma": 2, "Times New Roman": 2, "Trebuchet MS": 2, "Verdana": 1 },
     "font-size": { "px": 1, "em": 1, "%": 1 },
     "font-weight": { "bold": 1, "normal": 1 },
     "font-style": { "italic": 1, "normal": 1 },

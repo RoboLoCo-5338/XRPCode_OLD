@@ -11,7 +11,7 @@
     z-index: 1000;
     color: black;
     display: none;
-    font-family: "Roboto";
+    font-family: Roboto;
     font-size: 13px;
     flex-flow: column;
     overflow: scroll;
@@ -20,7 +20,7 @@
 .dir_chooser_header{
     background-color: #2980b9;
     flex: 0.05;
-    font-family: "Roboto";
+    font-family: Roboto;
     font-size: 16px;
     color: white;
 }

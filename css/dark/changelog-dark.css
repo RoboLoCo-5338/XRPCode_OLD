@@ -11,7 +11,7 @@
     z-index: 1000;
     color: white;
     display: none;
-    font-family: "Roboto";
+    font-family: Roboto;
     font-size: 14px;
     flex-flow: column;
     justify-content: center;
