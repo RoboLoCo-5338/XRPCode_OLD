@@ -265,6 +265,12 @@ FILE_DROPDOWN.addEventListener("mouseleave", () => {
     UIkit.dropdown(FILE_DROPDOWN).hide();
 });
 
+document.getElementById("IDFileUpload").onclick = (event) =>{
+    UIkit.dropdown(FILE_DROPDOWN).hide();
+    let id = localStorage.getItem("activeTabId");
+    EDITORS[id].onUploadFiles();
+}
+
 document.getElementById("IDFileAdd").onclick = (event) =>{
     UIkit.dropdown(FILE_DROPDOWN).hide();
     let id = localStorage.getItem("activeTabId");
@@ -273,7 +279,7 @@ document.getElementById("IDFileAdd").onclick = (event) =>{
 
 document.getElementById("pesto").onclick = (event) =>{
     if(REPL.PORT != undefined){
-        REPL.uploadFiles("/lib/XRPLib/pestolink.py");
+        REPL.uploadFile("/lib/pestolink.py", window.downloadFile("/lib/XRPLib/pestolink.py"));
     }else{
         window.alertMessage("No XRP is connected. Files can not be uploaded. Double-check that the XRP is connected before attempting to upload a file.");
     }
