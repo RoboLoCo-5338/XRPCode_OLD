@@ -1080,7 +1080,7 @@ class ReplJS{
 
         //create a version.py file that has the version in it for future checks
         await this.uploadFile("lib/XRPLib/version.py", "__version__ = '" + window.latestLibraryVersion[0] + "." + window.latestLibraryVersion[1] + "." + window.latestLibraryVersion[2] + "'\n" );
-        await this.uploadFile("pestolink.py", window.downloadFile("lib/XRPLib/pestolink.py"));
+        // await this.uploadFile("lib/pestolink.py", window.downloadFile("lib/XRPLib/pestolink.py"));
         cur_percent += percent_per;
 
 

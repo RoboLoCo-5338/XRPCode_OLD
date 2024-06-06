@@ -15,7 +15,7 @@ for (var i = 1; i <= 13; i++){
 }
 
 async function thing(){
-    await REPL.uploadFile("test.py", "__version__ = '" + window.latestLibraryVersion[0] + "." + window.latestLibraryVersion[1] + "." + window.latestLibraryVersion[2] + "'\n" )
+    await REPL.uploadFile("pestolink.py", window.downloadFile("lib/XRPLib/pestolink.py"));
 }
 
 
