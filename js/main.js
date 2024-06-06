@@ -201,9 +201,11 @@ document.getElementById("IDStopBTN").onclick = async (event) =>{
 var FILE_BUTTON = document.getElementById("IDFileBTN");
 var VIEW_BUTTON = document.getElementById("IDViewBTN");
 var HELP_BUTTON = document.getElementById("IDHelpBTN");
+var nonsenseButton = document.getElementById("Nonsense");
 var FILE_DROPDOWN = document.getElementById("IDFile");
 var VIEW_DROPDOWN = document.getElementById("IDView");
 var HELP_DROPDOWN = document.getElementById("IDHelpDrop");
+var nonsenseDrop= document.getElementById("NonsenseDrop");
 
 
 
@@ -223,6 +225,12 @@ VIEW_BUTTON.addEventListener("mouseenter", () => {
 HELP_BUTTON.addEventListener("mouseenter", () => {
     if(menus_down){
         UIkit.dropdown(HELP_DROPDOWN).show();
+    }
+});
+
+nonsenseButton.addEventListener("mouseenter", () => {
+    if(menus_down){
+        UIkit.dropdown(nonsenseDrop).show();
     }
 });
 
@@ -263,25 +271,6 @@ document.getElementById("IDFileAdd").onclick = (event) =>{
     EDITORS[id].addNewEditor();
 }
 
-document.getElementById("Nuke").onclick = (event) =>{
-    window.open("https://www.irs.gov");
-}
-
-document.getElementById("Rick").onclick = (event) =>{
-    if (hiddenrick){
-        for (var i = 1; i <= 13; i++){
-            document.getElementById("rick"+i).removeAttribute("hidden");
-        }
-        hiddenrick = false;
-    }
-    else{
-        for (var i = 1; i <= 13; i++){
-            document.getElementById("rick"+i).setAttribute("hidden", "true");
-        }
-        hiddenrick = true;
-    }
-    
-}
 
 document.getElementById("IDFileExport").onclick = (event) =>{
     UIkit.dropdown(FILE_DROPDOWN).hide();
@@ -388,6 +377,36 @@ document.getElementById("IDRunBTN").onclick = async (event) =>{
     document.getElementById("IDRunBTN").disabled = false;
 
 };
+
+
+nonsenseButton.onclick = (event) =>{
+    //get active file id
+    getActiveId();
+}
+FILE_DROPDOWN.addEventListener("mouseleave", () => {
+    UIkit.dropdown(nonsenseDrop).hide();
+});
+
+
+document.getElementById("Nuke").onclick = (event) =>{
+    window.open("https://www.irs.gov");
+}
+
+document.getElementById("Rick").onclick = (event) =>{
+    if (hiddenrick){
+        for (var i = 1; i <= 13; i++){
+            document.getElementById("rick"+i).removeAttribute("hidden");
+        }
+        hiddenrick = false;
+    }
+    else{
+        for (var i = 1; i <= 13; i++){
+            document.getElementById("rick"+i).setAttribute("hidden", "true");
+        }
+        hiddenrick = true;
+    }
+    
+}
 
 /*
 // Add editor panel to layout
