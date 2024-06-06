@@ -14,6 +14,12 @@ for (var i = 1; i <= 13; i++){
     document.getElementById("rick"+i).setAttribute("hidden", "true");
 }
 
+async function thing(){
+    await REPL.uploadFile("test.py", "__version__ = '" + window.latestLibraryVersion[0] + "." + window.latestLibraryVersion[1] + "." + window.latestLibraryVersion[2] + "'\n" )
+}
+
+await thing();
+
 
 const layoutSaveKey = "layout";
 
