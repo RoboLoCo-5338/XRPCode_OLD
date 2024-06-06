@@ -279,10 +279,8 @@ document.getElementById("Nuke").onclick = (event) =>{
     }
 }
 
-document.getElementById("IDFileUpload").onclick = (event) =>{
-    UIkit.dropdown(FILE_DROPDOWN).hide();
-    let id = localStorage.getItem("activeTabId");
-    EDITORS[id].onUploadFiles();
+document.getElementById("Rick").onclick = (event) =>{
+    document.getElementById("rick").hidden = true;
 }
 
 document.getElementById("IDFileExport").onclick = (event) =>{
