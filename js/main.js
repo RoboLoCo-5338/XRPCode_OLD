@@ -10,7 +10,7 @@ window.latestMicroPythonVersion = [1, 20, 0];
 window.xprID = "";
 
 var hiddenrick = true;
-for (var i = 1; i <= 12; i++){
+for (var i = 1; i <= 13; i++){
     document.getElementById("rick"+i).setAttribute("hidden", "true");
 }
 
@@ -286,16 +286,16 @@ document.getElementById("Nuke").onclick = (event) =>{
 
 document.getElementById("Rick").onclick = (event) =>{
     if (hiddenrick){
-        for (var i = 1; i <= 12; i++){
+        for (var i = 1; i <= 13; i++){
             document.getElementById("rick"+i).removeAttribute("hidden");
         }
-        hiddenrick= true;
+        hiddenrick = false;
     }
     else{
-        for (var i = 1; i <= 12; i++){
+        for (var i = 1; i <= 13; i++){
             document.getElementById("rick"+i).setAttribute("hidden", "true");
         }
-        hiddenrick = false;
+        hiddenrick = true;
     }
     
 }
