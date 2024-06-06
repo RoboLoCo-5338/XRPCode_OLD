@@ -737,16 +737,16 @@ Blockly.Blocks['pestolink_get_button'] = {
   }
 }
 
-Blockly.Blocks['text_to_num']={
-  init: function() {
-    this.appendValueInput("TEXT")
-      .setCheck("String")
-      .appendField("Text to Number");
-    this.setOutput(true, null);
-    this.setColour(160);
-    this.setTooltip("Convert text to a number");
-  }
-}
+// Blockly.Blocks['text_to_num']={
+//   init: function() {
+//     this.appendValueInput("TEXT")
+//       .setCheck("String")
+//       .appendField("Text to Number");
+//     this.setOutput(true, null);
+//     this.setColour(160);
+//     this.setTooltip("Convert text to a number");
+//   }
+// }
 // OTHER BLOCK COLORS - These colors can be found in the xrp_blockly_toolbox1.js file
 // BLOCK TYPE --> COLOR
 // Loops --> grass green
