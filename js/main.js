@@ -277,11 +277,11 @@ document.getElementById("IDFileAdd").onclick = (event) =>{
     EDITORS[id].addNewEditor();
 }
 
-document.getElementById("pesto").onclick = (event) =>{
+document.getElementById("pesto").onclick = async (event) =>{
     if(REPL.PORT != undefined){
-        REPL.uploadFile("/lib/pestolink.py", window.downloadFile("/lib/XRPLib/pestolink.py"));
+        await REPL.uploadFile("/pestolink.py", await window.downloadFile("lib/XRPLib/pestolink.py"));
     }else{
-        window.alertMessage("No XRP is connected. Files can not be uploaded. Double-check that the XRP is connected before attempting to upload a file.");
+        await window.alertMessage("No XRP is connected. Files can not be uploaded. Double-check that the XRP is connected before attempting to upload a file.");
     }
 }
 
