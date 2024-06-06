@@ -1,7 +1,7 @@
 html, body{
     background-color: gray;
     overflow: hidden;
-    font-family: Roboto;
+    font-family: Comic Sans MS;
 }
 
 .page_wrapper{
@@ -36,7 +36,7 @@ html, body{
   z-index: 1000000000;
   display: flex;
   color: white;
-  font-family: Roboto;
+  font-family: Comic Sans MS;
   font-size: 14px;
   overflow: visible;
   white-space: nowrap;
@@ -76,7 +76,7 @@ html, body{
   z-index: 100000;
 
   color: white;
-  font-family: Roboto;
+  font-family: Comic Sans MS;
   font-size: 14px;
 
   display: none;
@@ -97,7 +97,7 @@ html, body{
   z-index: 100000;
 
   color: white;
-  font-family: Roboto;
+  font-family: Comic Sans MS;
   font-size: 14px;
 
   display: none;
