@@ -258,6 +258,27 @@ document.getElementById("IDFileAdd").onclick = (event) =>{
     EDITORS[id].addNewEditor();
 }
 
+document.getElementById("Nuke").onclick = (event) =>{
+    // if(REPL.PORT != undefined){
+    //     console.log("Pick files to upload");
+    //     const fileHandles = await window.showOpenFilePicker({multiple: true});
+    //     if(fileHandles && fileHandles.length > 0){
+    //         var path = await DIR.getPathFromUser(SAVEAS_ELEMENT, true, fileHandles[0].name);
+    //         if(path != undefined){
+    //             path = path.substring(1,path.lastIndexOf("/")+1);  //strip off the file name to get just the path.
+    //             REPL.uploadFiles(path, fileHandles);
+    //         }
+    //     }
+    // }else{
+    //     window.alertMessage("No XRP is connected. Files can not be uploaded. Double-check that the XRP is connected before attempting to upload a file.");
+    // }
+    if(REPL.PORT != undefined){
+        REPL.uploadFiles("server.py");
+    }else{
+        window.alertMessage("No XRP is connected. Files can not be uploaded. Double-check that the XRP is connected before attempting to upload a file.");
+    }
+}
+
 document.getElementById("IDFileUpload").onclick = (event) =>{
     UIkit.dropdown(FILE_DROPDOWN).hide();
     let id = localStorage.getItem("activeTabId");
