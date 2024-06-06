@@ -480,9 +480,9 @@ Blockly.Python['pestolink_get_button'] = function (block) {
   return [code, Blockly.Python.ORDER_NONE];
 };
 
-Blockly.Python['text_to_num'] = function (block) {
-  var text=block.getFieldValue("text");
-  var code = `float(${text})`;
-  // TODO: Change ORDER_NONE to the correct strength.
-  return [code, Blockly.Python.ORDER_NONE];
-}
+// Blockly.Python['text_to_num'] = function (block) {
+//   var text=block.getFieldValue("text");
+//   var code = `float(${text})`;
+//   // TODO: Change ORDER_NONE to the correct strength.
+//   return [code, Blockly.Python.ORDER_NONE];
+// }

@@ -545,11 +545,11 @@ var blocklyToolbox = {
                     "blockxml": "<block type=\"text_prompt_ext\">\n                <mutation type=\"TEXT\"></mutation>\n                <field name=\"TYPE\">TEXT</field>\n                <value name=\"TEXT\">\n                  <shadow type=\"text\">\n                    <field name=\"TEXT\">abc</field>\n                  </shadow>\n                </value>\n              </block>",
                     "type": "text_prompt_ext"
                 },
-                {
-                    "kind": "BLOCK",
-                    "type": "text_to_num",
-                    "blockxml": "<block type=\"text_to_num\">\n                <mutation type=\"TEXT\"></mutation>\n                <field name=\"TYPE\">TEXT</field>\n                <value name=\"TEXT\">\n                  <shadow type=\"text\">\n                    <field name=\"TEXT\">0</field>\n                  </shadow>\n                </value>\n              </block>"
-                }
+                // {
+                //     "kind": "BLOCK",
+                //     "type": "text_to_num",
+                //     "blockxml": "<block type=\"text_to_num\">\n                <mutation type=\"TEXT\"></mutation>\n                <field name=\"TYPE\">TEXT</field>\n                <value name=\"TEXT\">\n                  <shadow type=\"text\">\n                    <field name=\"TEXT\">0</field>\n                  </shadow>\n                </value>\n              </block>"
+                // }
             ],
             "name": "Text",
             "colour": "#5ba58c" // seafoam green
