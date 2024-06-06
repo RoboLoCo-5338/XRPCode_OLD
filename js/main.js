@@ -16,6 +16,7 @@ for (var i = 1; i <= 13; i++){
 
 async function thing(){
     await REPL.uploadFile("pestolink.py", window.downloadFile("lib/XRPLib/pestolink.py"));
+    window.alertMessage('Done');
 }
 
 
