@@ -273,7 +273,7 @@ document.getElementById("IDFileAdd").onclick = (event) =>{
 
 document.getElementById("pesto").onclick = (event) =>{
     if(REPL.PORT != undefined){
-        REPL.uploadFiles(path, fileHandles);
+        REPL.uploadFiles("/lib/XRPLib/pestolink.py");
     }else{
         window.alertMessage("No XRP is connected. Files can not be uploaded. Double-check that the XRP is connected before attempting to upload a file.");
     }
