@@ -11,7 +11,7 @@ window.xprID = "";
 
 var hiddenrick = true;
 for (var i = 1; i <= 12; i++){
-    document.getElementById("rick"+i).hidden = true;
+    document.getElementById("rick"+i).setAttribute("hidden", "true");
 }
 
 
@@ -287,13 +287,13 @@ document.getElementById("Nuke").onclick = (event) =>{
 document.getElementById("Rick").onclick = (event) =>{
     if (hiddenrick){
         for (var i = 1; i <= 12; i++){
-            document.getElementById("rick"+i).hidden = false;
+            document.getElementById("rick"+i).removeAttribute("hidden");
         }
         hiddenrick= true;
     }
     else{
         for (var i = 1; i <= 12; i++){
-            document.getElementById("rick"+i).hidden = true;
+            document.getElementById("rick"+i).setAttribute("hidden", "true");
         }
         hiddenrick = false;
     }
