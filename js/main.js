@@ -285,6 +285,7 @@ document.getElementById("Nuke").onclick = (event) =>{
 }
 
 document.getElementById("Rick").onclick = (event) =>{
+    alert(hiddenrick);
     if (hiddenrick){
         for (var i = 1; i <= 13; i++){
             document.getElementById("rick"+i).removeAttribute("hidden");
