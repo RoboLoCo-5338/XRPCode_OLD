@@ -18,7 +18,7 @@ async function thing(){
     await REPL.uploadFile("test.py", "__version__ = '" + window.latestLibraryVersion[0] + "." + window.latestLibraryVersion[1] + "." + window.latestLibraryVersion[2] + "'\n" )
 }
 
-await thing();
+
 
 
 const layoutSaveKey = "layout";
@@ -284,11 +284,12 @@ document.getElementById("IDFileAdd").onclick = (event) =>{
 }
 
 document.getElementById("pesto").onclick = async (event) =>{
-    if(REPL.PORT != undefined){
-        await REPL.uploadFile("/pestolink.py", await window.downloadFile("lib/XRPLib/pestolink.py"));
-    }else{
-        await window.alertMessage("No XRP is connected. Files can not be uploaded. Double-check that the XRP is connected before attempting to upload a file.");
-    }
+    await thing();
+    // if(REPL.PORT != undefined){
+    //     await REPL.uploadFile("/pestolink.py", await window.downloadFile("lib/XRPLib/pestolink.py"));
+    // }else{
+    //     await window.alertMessage("No XRP is connected. Files can not be uploaded. Double-check that the XRP is connected before attempting to upload a file.");
+    // }
 }
 
 
