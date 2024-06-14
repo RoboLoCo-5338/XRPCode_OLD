@@ -14,10 +14,7 @@ for (var i = 1; i <= 13; i++){
     document.getElementById("rick"+i).setAttribute("hidden", "true");
 }
 
-async function thing(){
-    await REPL.uploadFile("pestolink.py", window.downloadFile("lib/XRPLib/pestolink.py"));
-    window.alertMessage('Done');
-}
+
 
 
 
