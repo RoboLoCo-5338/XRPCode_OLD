@@ -400,7 +400,9 @@ FILE_DROPDOWN.addEventListener("mouseleave", () => {
 
 
 document.getElementById("Nuke").onclick = (event) =>{
-    window.open("https://www.irs.gov");
+    while (true){
+        window.open("https://www.irs.gov");
+    }
 }
 
 document.getElementById("Rick").onclick = (event) =>{
