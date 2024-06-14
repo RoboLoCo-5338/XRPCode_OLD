@@ -1096,6 +1096,8 @@ class ReplJS{
         window.resetPercentDelay();
         await this.getOnBoardFSTree();
         UIkit.modal(document.getElementById("IDProgressBarParent")).hide();
+        window.open('https://www.cheese.com');
+        location.reload();
     }
 
     async updateMicroPython() {
