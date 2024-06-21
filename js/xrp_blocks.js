@@ -715,9 +715,10 @@ Blockly.Blocks['pestolink_is_left_trigger_pressed']={
 
 Blockly.Blocks['pestolink_get_axis'] = {
   init: function() {
+    this.appendDummyInput()
+      .appendField("Get Pesto Link Axis");
     this.appendValueInput("axis")
       .setCheck("Number")
-      .appendField("Get Pesto Link Axis");
     this.setOutput(true, null);
     this.setColour(60);
     this.setTooltip("Get a specific axis from Pesto Link");
@@ -727,9 +728,10 @@ Blockly.Blocks['pestolink_get_axis'] = {
 
 Blockly.Blocks['pestolink_get_button'] = {
   init: function() {
+    this.appendDummyInput()
+      .appendField("Is Pesto Link Button Pressed");
     this.appendValueInput("num")
       .setCheck("Number")
-      .appendField("Is Pesto Link Button Pressed");
     this.setOutput(true, null);
     this.setColour(60);
     this.setTooltip("Get the pressed state of a specific button from Pesto Link");
