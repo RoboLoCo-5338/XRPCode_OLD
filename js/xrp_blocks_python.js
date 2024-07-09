@@ -251,6 +251,7 @@ Blockly.Python['xrp_wait_for_button_press'] = function (block) {
 var nextFunc = 0;
 function getFuncName(){
   nextFunc++;
+  console.log(nextFunc);
   return "func" + nextFunc;
 }
 
@@ -351,6 +352,23 @@ Blockly.Python['xrp_sleep'] = function (block) {
   var code = `time.sleep(${number_time})\n`;
   return code;
 };
+
+Blockly.Python['python_code'] = function(block) {
+  var value_name = Blockly.Python.valueToCode(block, 'CODE', python.Order.ATOMIC);
+  // TODO: Assemble python into code variable.
+  return value_name.substring(1, value_name.length-1);
+};
+
+Blockly.Python['run_function_periodically'] = function(block) {
+  // TODO: change Order.ATOMIC to the correct operator precedence strength
+  PY.definitions_['import_timer'] = 'from machine import Timer \n\n timers=[]';
+  const value_after = Blockly.Python.valueToCode(block, 'AFTER', Blockly.Python.ORDER_ATOMIC);
+  const statement_do = Blockly.Python.statementToCode(block, 'DO');
+  var funcName = getFuncName();
+  var code = `\ndef ${funcName}():\n${statement_do}\ntimers.append(Timer(-1)); timers[-1].init(period=${value_after}, mode=Timer.PERIODIC, callback=${funcName})`
+
+  return code;
+}
 
 //Pesto Link Controller: Credit Kavin Muralikrishnan FRC Team 5338 Roboloco
 Blockly.Python['pestolink_get_controller_left_x'] = function (block) {

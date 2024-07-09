@@ -579,8 +579,36 @@ Blockly.Blocks['xrp_sleep'] = {
     this.setHelpUrl("");
   }
 };
-
+Blockly.Blocks['python_code'] = {
+  init: function() {
+    this.appendValueInput("CODE")
+        .setCheck("String")
+        .appendField("Add Python Code");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(200);
+ this.setTooltip("Adds a line of Python code to the generated program.");
+ this.setHelpUrl("");
+  }
+};
 //Pesto Link Controller: Credit Kavin Muralikrishnan FRC Team 5338 Roboloco
+Blockly.Blocks['run_function_periodically'] = {
+  init: function() {
+    this.appendValueInput('AFTER')
+    .appendField('After')
+    .setCheck('Number');
+    this.appendDummyInput()
+    .appendField('seconds,');
+    this.appendStatementInput('DO')
+    .appendField('Do');
+    this.setInputsInline(true)
+    this.setTooltip('');
+    this.setHelpUrl('');
+    this.setColour(120);
+  }
+};
+
+
 Blockly.Blocks['pestolink_get_controller_left_x']={
   init: function () {
     this.appendDummyInput()
@@ -719,6 +747,7 @@ Blockly.Blocks['pestolink_get_axis'] = {
       .appendField("Get Pesto Link Axis");
     this.appendValueInput("axis")
       .setCheck("Number")
+    this.setInputsInline(true);
     this.setOutput(true, null);
     this.setColour(60);
     this.setTooltip("Get a specific axis from Pesto Link");
@@ -732,6 +761,7 @@ Blockly.Blocks['pestolink_get_button'] = {
       .appendField("Is Pesto Link Button Pressed");
     this.appendValueInput("num")
       .setCheck("Number")
+    this.setInputsInline(true);
     this.setOutput(true, null);
     this.setColour(60);
     this.setTooltip("Get the pressed state of a specific button from Pesto Link");

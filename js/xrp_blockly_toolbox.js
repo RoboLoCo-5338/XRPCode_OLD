@@ -379,6 +379,10 @@ var blocklyToolbox = {
                 {
                     "kind": "BLOCK",
                     "type": "logic_ternary"
+                },
+                {
+                    "kind": "BLOCK",
+                    "type": "python_code"
                 }
             ],
             "name": "Logic",
@@ -411,7 +415,11 @@ var blocklyToolbox = {
                     "kind": "BLOCK",
                     "blockxml": "<block type=\"controls_flow_statements\">\n                <field name=\"FLOW\">BREAK</field>\n              </block>",
                     "type": "controls_flow_statements"
-                }
+                },
+                {
+                    "kind": "BLOCK",
+                    "type": "run_function_periodically"
+                },
             ],
             "name": "Loops",
             "colour": "#5ba55b" // grass green
