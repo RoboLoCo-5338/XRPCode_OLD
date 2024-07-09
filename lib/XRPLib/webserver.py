@@ -259,10 +259,11 @@ class Webserver:
         for data_label in self.logged_data.keys():
             string += f'<p>{data_label}: {str(self.logged_data[data_label])}</p>'
             string += "\n"
-        string += f'<p>Controller Data: '
+        string += f'\n<script>\nvar controller_data=['
         for i in self.controller_data:
-            string+=f'{str(i)} '
-        string += "</p>\n"
+            string+=f'{str(i)}, '
+        string=string[:-2]
+        string += "]</script>\n"
         string += _HTML2
 
         return string
