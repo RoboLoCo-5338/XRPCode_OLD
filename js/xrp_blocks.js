@@ -580,7 +580,27 @@ Blockly.Blocks['xrp_sleep'] = {
   }
 };
 
-//Pesto Link Controller: Credit Kavin Muralikrishnan FRC Team 5338 Roboloco
+//Pesto Link Controller: Credit Kavin Muralikrishnan and Aneesh Sule FRC Team 5338 Roboloco
+Blockly.Blocks['connect_to_pestolink']={
+  init: function () {
+    this.appendDummyInput()
+      .appendField("Connect to Pesto Link");
+    this.setOutput(true, null);
+    this.setColour(60);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+}
+Blockly.Blocks['swarm_pestolink']={
+  init: function () {
+    this.appendDummyInput()
+      .appendField("Enable Swarm Configuration of Pesto Link");
+    this.setOutput(true, null);
+    this.setColour(60);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+}
 Blockly.Blocks['pestolink_get_controller_left_x']={
   init: function () {
     this.appendDummyInput()
@@ -719,6 +739,7 @@ Blockly.Blocks['pestolink_get_axis'] = {
       .appendField("Get Pesto Link Axis");
     this.appendValueInput("axis")
       .setCheck("Number")
+    this.setInputsInline(true);
     this.setOutput(true, null);
     this.setColour(60);
     this.setTooltip("Get a specific axis from Pesto Link");
@@ -733,8 +754,29 @@ Blockly.Blocks['pestolink_get_button'] = {
     this.appendValueInput("num")
       .setCheck("Number")
     this.setOutput(true, null);
+    this.setInputsInline(true);
     this.setColour(60);
     this.setTooltip("Get the pressed state of a specific button from Pesto Link");
+    this.setHelpUrl("");
+  }
+}
+
+Blockly.Blocks['pestolink_upload_controller_data'] = {
+  init: function() {
+    this.appendDummyInput()
+      .appendField("Upload Data to Web Server");
+    this.setColour(60);
+    this.setTooltip("Uploads Pesto Link Data to Web Server");
+    this.setHelpUrl("");
+  }
+}
+
+Blockly.Blocks['pestolink_download_controller_data'] = {
+  init: function() {
+    this.appendDummyInput()
+      .appendField("Download Data From Web Server");
+    this.setColour(60);
+    this.setTooltip("Downloads Pesto Link Data From Web Server");
     this.setHelpUrl("");
   }
 }

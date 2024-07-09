@@ -161,9 +161,39 @@ class PestoLinkAgent:
     def get_button(self, button_num):
         if self._byte_list == None:
             return False
-        
         raw_buttons = (self._byte_list[6] << 8) + self._byte_list[5]
         if ((raw_buttons >> (button_num)) & 0x01):
             return True
         else:
             return False
+    def get_byte_list(self):
+        return self._byte_list
+
+class PestoDriver:
+    #class with a byte list that has some of the methods from the full agent. It can allow for swarm control without bluetooth connection.
+    def __init__(self) -> None:
+        self._byte_list = [1,127,127,127,127,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    def get_raw_axis(self, axis_num):
+        if axis_num < 0 or axis_num > 3 or self._byte_list == None:
+            return 127
+        else:
+            return self._byte_list[1 + axis_num]
+
+    def get_axis(self, axis_num):
+        raw_axis = self.get_raw_axis(axis_num)
+        if raw_axis == 127:
+            return 0
+        else:
+            return (raw_axis / 127.5) - 1
+        
+    def get_button(self, button_num):
+        if self._byte_list == None:
+            return False
+        raw_buttons = (self._byte_list[6] << 8) + self._byte_list[5]
+        if ((raw_buttons >> (button_num)) & 0x01):
+            return True
+        else:
+            return False
+    
+    def set_byte_list(self, data):
+        self._byte_list=data

@@ -24,6 +24,7 @@ class Webserver:
 
         gc.threshold(50000) # garbage collection
         self.logged_data = {}
+        self.controller_data=[1, 127, 127, 127, 127, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         self.buttons = {"forwardButton":    lambda: logging.debug("Button not initialized"),
                         "backButton":   lambda: logging.debug("Button not initialized"),
                         "leftButton":       lambda: logging.debug("Button not initialized"),
@@ -218,6 +219,12 @@ class Webserver:
         self.display_arrows = True
         self.buttons["stopButton"] = function
 
+    def getControllerData(self):
+        return self.controller_data
+    
+    def setControllerData(self, data):
+        self.controller_data=data
+
     def _handleUserFunctionRequest(self, text) -> bool:
         print(f"Running {text}")
         try:
@@ -252,7 +259,10 @@ class Webserver:
         for data_label in self.logged_data.keys():
             string += f'<p>{data_label}: {str(self.logged_data[data_label])}</p>'
             string += "\n"
-
+        string += f'<p>Controller Data: '
+        for i in self.controller_data:
+            string+=f'{str(i)} '
+        string += "</p>\n"
         string += _HTML2
 
         return string
