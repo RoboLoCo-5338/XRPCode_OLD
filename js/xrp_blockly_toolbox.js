@@ -116,6 +116,10 @@ var blocklyToolbox = {
                         "degrees": {"shadow": {"type": "math_number", "fields": {"NUM": "90"}}}
                     }
                 },
+                {
+                    "kind": "BLOCK",
+                    "type": "xrp_get_servo_deg"
+                }
             ]
         },
         {

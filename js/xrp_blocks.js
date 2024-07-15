@@ -272,6 +272,21 @@ Blockly.Blocks['xrp_servo_deg'] = {
   }
 };
 
+Blockly.Blocks['xrp_get_servo_deg'] = {
+  init: function () {
+    this.appendDummyInput()
+    this.appendDummyInput()
+          .appendField('Get Servo:')
+          .appendField(new Blockly.FieldDropdown([["1", "1"], ["2", "2"]]), "SERVO")
+          .appendField('Degrees');
+    this.setOutput(true, null);
+    this.setInputsInline(true);
+    this.setColour(300); // light purple
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
 // Sensors - Sonar
 Blockly.Blocks['xrp_getsonardist'] = {
   init: function () {

@@ -137,19 +137,34 @@ Blockly.Python['xrp_getrightencoder'] = function (block) {
 };
 
 //Servo
+var servo_1_deg=0; //TODO: Change this to servo degrees on initialization
+var servo_2_deg=0; //TODO: Change this to servo degrees on initialization
 Blockly.Python['xrp_servo_deg'] = function (block) {
+  var value_degrees = Blockly.Python.valueToCode(block, 'degrees', Blockly.Python.ORDER_ATOMIC);
   PY.definitions_['import_servo'] = 'from XRPLib.servo import Servo';
   var index = block.getFieldValue("SERVO");
   if(index == 1){
     PY.definitions_[`servo_setup`] = `servo1 = Servo.get_default_servo(1)`;
+    servo_1_deg=value_degrees;
   }
   else {
     PY.definitions_[`servo2_setup`] = `servo2 = Servo.get_default_servo(2)`;
+    servo_2_deg=value_degrees;
   }
-  var value_degrees = Blockly.Python.valueToCode(block, 'degrees', Blockly.Python.ORDER_ATOMIC);
   var code = `servo${index}.set_angle(${value_degrees})\n`;
   return code;
 };
+
+Blockly.Python['xrp_get_servo_deg'] = function(block){
+  PY.definitions_['import_servo'] = 'from XRPLib.servo import Servo';
+  var index=block.getFieldValue("SERVO");
+  if(index==1){
+    return [servo_1_deg.toString(), Blockly.Python.ORDER_NONE];
+  }
+  else{
+    return [servo_2_deg.toString(), Blockly.Python.ORDER_NONE];
+  }
+}
 
 //Distance
 Blockly.Python['xrp_getsonardist'] = function (block) {
