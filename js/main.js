@@ -426,6 +426,9 @@ document.getElementById("Rick").onclick = (event) =>{
     }
     
 }
+document.getElementById("DLC").onclick = (event) =>{
+    window.open("https://www.nintendo.com/us/store/products/the-legend-of-zelda-tears-of-the-kingdom-switch/");
+}
 
 /*
 // Add editor panel to layout
