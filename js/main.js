@@ -378,6 +378,14 @@ document.getElementById("IDAPI").onclick = (event) =>{
     UIkit.dropdown(HELP_DROPDOWN).hide();
     window.open("https://open-stem.github.io/XRP_MicroPython/", "_blank")
 }
+document.getElementById("MailHelp").onclick = (event) =>{
+    if(Math.floor(Math.random()*2)==0){
+        window.open("mailto:921563@lcps.org");
+    }
+    else{
+        window.open("mailto:919507@lcps.org");
+    }
+}
 
 disableMenuItems(); 
 
