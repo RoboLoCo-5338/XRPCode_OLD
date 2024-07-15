@@ -1,12 +1,14 @@
 
-# Version 1.0.2
+# Version 1.0.2.L
 
-This update has a few bug fixes 
+This is the Roboloco version of the XRP site. Credits to Kavin Muralikrishnan and Aneesh Sule for making changes. 
 
-#### Fixed
-* A timing error that caused the XRPLib update to get stuck at 34% or 64%
-* XRPCode now updates the MicroPython and then XRPLib
-* Fixed escape sequences getting lost while using the keyboard commands with the REPL in the Shell window 
+#### changes
+* Added native pesto link support in Blockly
+* Added Block to get the degrees of one of the servos
+* Added Block to code directly in MicroPython
+* Added Block that runs inner code after a certain period repeatedly
+* ;)
 
 
 #### Getting help
