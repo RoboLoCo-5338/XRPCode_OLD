@@ -4,15 +4,47 @@ import random
 import struct
 import time
 
-
 _IRQ_CENTRAL_CONNECT = const(1)
 _IRQ_CENTRAL_DISCONNECT = const(2)
 _IRQ_GATTS_WRITE = const(3)
+_IRQ_GATTS_READ_REQUEST = const(4)
+_IRQ_SCAN_RESULT = const(5)
+_IRQ_SCAN_DONE = const(6)
+_IRQ_PERIPHERAL_CONNECT = const(7)
+_IRQ_PERIPHERAL_DISCONNECT = const(8)
+_IRQ_GATTC_SERVICE_RESULT = const(9)
+_IRQ_GATTC_SERVICE_DONE = const(10)
+_IRQ_GATTC_CHARACTERISTIC_RESULT = const(11)
+_IRQ_GATTC_CHARACTERISTIC_DONE = const(12)
+_IRQ_GATTC_DESCRIPTOR_RESULT = const(13)
+_IRQ_GATTC_DESCRIPTOR_DONE = const(14)
+_IRQ_GATTC_READ_RESULT = const(15)
+_IRQ_GATTC_READ_DONE = const(16)
+_IRQ_GATTC_WRITE_DONE = const(17)
+_IRQ_GATTC_NOTIFY = const(18)
+_IRQ_GATTC_INDICATE = const(19)
+_IRQ_GATTS_INDICATE_DONE = const(20)
+_IRQ_MTU_EXCHANGED = const(21)
+_IRQ_L2CAP_ACCEPT = const(22)
+_IRQ_L2CAP_CONNECT = const(23)
+_IRQ_L2CAP_DISCONNECT = const(24)
+_IRQ_L2CAP_RECV = const(25)
+_IRQ_L2CAP_SEND_READY = const(26)
+_IRQ_CONNECTION_UPDATE = const(27)
+_IRQ_ENCRYPTION_UPDATE = const(28)
+_IRQ_GET_SECRET = const(29)
+_IRQ_SET_SECRET = const(30)
 
 _FLAG_READ = const(0x0002)
 _FLAG_WRITE_NO_RESPONSE = const(0x0004)
 _FLAG_WRITE = const(0x0008)
 _FLAG_NOTIFY = const(0x0010)
+
+_ADV_IND = const(0x00)
+_ADV_DIRECT_IND = const(0x01)
+_ADV_SCAN_IND = const(0x02)
+_ADV_NONCONN_IND = const(0x03)
+_SCAN_RSP = const(0x04)
 
 _UART_UUID = bluetooth.UUID("27df26c5-83f4-4964-bae0-d7b7cb0a1f54")
 _UART_TX = (
@@ -37,7 +69,6 @@ _ADV_TYPE_UUID16_MORE = const(0x2)
 _ADV_TYPE_UUID32_MORE = const(0x4)
 _ADV_TYPE_UUID128_MORE = const(0x6)
 _ADV_TYPE_APPEARANCE = const(0x19)
-
 
 # Generate a payload to be passed to gap_advertise(adv_data=...).
 def advertising_payload(limited_disc=False, br_edr=False, name=None, services=None, appearance=0):
@@ -98,7 +129,7 @@ def decode_services(payload):
     return services
 
 class PestoLinkAgent:
-    def __init__(self, name):
+    def __init__(self, name, p_swarm=False):
         sliced_name = name[:8] #only use the first 8 characters in the name, otherwise code will crash
         self._ble = bluetooth.BLE()
         self._ble.active(True)
@@ -108,6 +139,9 @@ class PestoLinkAgent:
         self._payload = advertising_payload(name=sliced_name, services=[_UART_UUID])
         self._byte_list = [1,127,127,127,127,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         self._advertise()
+        self.swarm=p_swarm
+        self.children=0
+        
 
     def _irq(self, event, data):
         # Track connections so we can send notifications.
@@ -115,6 +149,8 @@ class PestoLinkAgent:
             conn_handle, _, _ = data
             #print("New connection")
             self._connections.add(conn_handle)
+            if(self.swarm and self.children<7):
+                self._ble.gap_scan(0)
         elif event == _IRQ_CENTRAL_DISCONNECT:
             conn_handle, _, _ = data
             #print("Disconnected")
@@ -126,7 +162,19 @@ class PestoLinkAgent:
             value = self._ble.gatts_read(value_handle)
             if value_handle == self._handle_rx:
                 self.on_write(value)
-
+        elif event == _IRQ_SCAN_RESULT:
+            addr_type, addr, adv_type, rssi, adv_data = data
+            if adv_type in (_ADV_IND, _ADV_DIRECT_IND) and _UART_UUID in decode_services(adv_data):
+                self._ble.gap_connect(addr_type, addr)
+        elif event == _IRQ_PERIPHERAL_CONNECT:
+            self.children+=1
+            if(self.children==7):
+                self._ble.gap_scan(None)
+                # Need to add something here
+        elif event == _IRQ_PERIPHERAL_DISCONNECT:
+            # Connected peripheral has disconnected.
+            conn_handle, addr_type, addr = data
+            self.children-=1
     def send(self, data):
         for conn_handle in self._connections:
             self._ble.gatts_notify(conn_handle, self._handle_tx, data)
@@ -137,13 +185,14 @@ class PestoLinkAgent:
     def _advertise(self, interval_us=500000):
         #print("Starting advertising")
         self._ble.gap_advertise(interval_us, adv_data=self._payload)
-
     def on_write(self, value):
         _raw_byte_list = [byte for byte in value]
         if (_raw_byte_list[0] == 0x01):
             self._byte_list = _raw_byte_list
         else:
             self._byte_list = [1,127,127,127,127,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        for conn_handle in self._connections:
+            pass
         
     def get_raw_axis(self, axis_num):
         if axis_num < 0 or axis_num > 3 or self._byte_list == None:
