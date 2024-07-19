@@ -231,11 +231,22 @@ HELP_BUTTON.addEventListener("mouseenter", () => {
         UIkit.dropdown(HELP_DROPDOWN).show();
     }
 });
-
+nonsenseButton.style.position='relative';
+var randomPosition=Math.floor(Math.random()*500).toString()+"px";
+nonsenseButton.style.left=randomPosition;
 nonsenseButton.addEventListener("mouseenter", () => {
     if(menus_down){
         UIkit.dropdown(nonsenseDrop).show();
     }
+});
+nonsenseDrop.addEventListener("show", () => {
+    menus_down = true;
+});
+
+nonsenseDrop.addEventListener("hide", () => {
+    var randomPosition=Math.floor(Math.random()*500).toString()+"px";
+    nonsenseButton.style.left=randomPosition;
+    menus_down = false;
 });
 
 FILE_DROPDOWN.addEventListener("show", () => {
@@ -267,6 +278,9 @@ FILE_BUTTON.onclick = (event) =>{
 }
 FILE_DROPDOWN.addEventListener("mouseleave", () => {
     UIkit.dropdown(FILE_DROPDOWN).hide();
+});
+nonsenseDrop.addEventListener("mouseleave", () => {
+    UIkit.dropdown(nonsenseDrop).hide();
 });
 
 document.getElementById("IDFileUpload").onclick = (event) =>{
