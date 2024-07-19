@@ -610,7 +610,7 @@ Blockly.Blocks['python_code'] = {
 Blockly.Blocks['run_function_periodically'] = {
   init: function() {
     this.appendValueInput('AFTER')
-    .appendField('After')
+    .appendField('Every')
     .setCheck('Number');
     this.appendDummyInput()
     .appendField('seconds,');
