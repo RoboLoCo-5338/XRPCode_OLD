@@ -201,6 +201,13 @@ var blocklyToolbox = {
                     "contents": [
                         {
                             "kind": "BLOCK",
+                            "type": "initialize_pesto_link",
+                            "inputs": {
+                                "SWARM": {"shadow": {"type": "logic_boolean"}, "fields": {"SWARM": "true"}}
+                            }
+                        },
+                        {
+                            "kind": "BLOCK",
                             "type": "pestolink_get_controller_left_x"
                         },
                         {

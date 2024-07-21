@@ -606,7 +606,7 @@ Blockly.Blocks['python_code'] = {
  this.setHelpUrl("");
   }
 };
-//Pesto Link Controller: Credit Kavin Muralikrishnan FRC Team 5338 Roboloco
+//Pesto Link Controller: Credit Kavin Muralikrishnan and Aneesh Sule FRC Team 5338 Roboloco
 Blockly.Blocks['run_function_periodically'] = {
   init: function() {
     this.appendValueInput('AFTER')
@@ -616,13 +616,27 @@ Blockly.Blocks['run_function_periodically'] = {
     .appendField('seconds,');
     this.appendStatementInput('DO')
     .appendField('Do');
-    this.setInputsInline(true)
+    this.setInputsInline(true);
     this.setTooltip('');
     this.setHelpUrl('');
     this.setColour(120);
   }
 };
 
+Blockly.Blocks['initialize_pesto_link']={
+  init: function () {
+    this.appendDummyInput()
+      .appendField("Initialize Pesto Link");
+    this.appendValueInput('SWARM')
+      .appendField('Using this as a swarm controller: ')
+      .setCheck('Boolean');
+    this.setOutput(true, null);
+    this.setColour(60);
+    this.setTooltip("Initializes a Pesto Link agent. If the boolean is true, the agent can have children connect to it to form a Piconet.");
+    this.setHelpUrl("");
+    this.setInputsInline(true);
+  }
+};
 
 Blockly.Blocks['pestolink_get_controller_left_x']={
   init: function () {
@@ -784,16 +798,6 @@ Blockly.Blocks['pestolink_get_button'] = {
   }
 }
 
-// Blockly.Blocks['text_to_num']={
-//   init: function() {
-//     this.appendValueInput("TEXT")
-//       .setCheck("String")
-//       .appendField("Text to Number");
-//     this.setOutput(true, null);
-//     this.setColour(160);
-//     this.setTooltip("Convert text to a number");
-//   }
-// }
 // OTHER BLOCK COLORS - These colors can be found in the xrp_blockly_toolbox1.js file
 // BLOCK TYPE --> COLOR
 // Loops --> grass green
