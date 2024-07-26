@@ -141,6 +141,7 @@ class PestoLinkAgent:
         self._advertise()
         self.swarm=p_swarm
         self.children=0
+        self.main_con=""
         
 
     def _irq(self, event, data):
@@ -149,6 +150,7 @@ class PestoLinkAgent:
             conn_handle, _, _ = data
             #print("New connection")
             self._connections.add(conn_handle)
+            self.main_con=conn_handle
             if(self.swarm and self.children<7):
                 self._ble.gap_scan(0)
         elif event == _IRQ_CENTRAL_DISCONNECT:
@@ -171,10 +173,14 @@ class PestoLinkAgent:
             if(self.children==7):
                 self._ble.gap_scan(None)
                 # Need to add something here
+                # Idk what I was talking about above please help me remember
+                # NVM I think its like wait I got it its like which connection but I dont need that
         elif event == _IRQ_PERIPHERAL_DISCONNECT:
             # Connected peripheral has disconnected.
             conn_handle, addr_type, addr = data
             self.children-=1
+            self._connections.remove(conn_handle)
+            self._ble.gap_scan(0)
     def send(self, data):
         for conn_handle in self._connections:
             self._ble.gatts_notify(conn_handle, self._handle_tx, data)
@@ -192,6 +198,8 @@ class PestoLinkAgent:
         else:
             self._byte_list = [1,127,127,127,127,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         for conn_handle in self._connections:
+            if conn_handle!=self.main_con:
+                self._ble.gattc_write(conn_handle, self._handle_rx, self._byte_list)
             pass
         
     def get_raw_axis(self, axis_num):
