@@ -380,7 +380,7 @@ Blockly.Python['run_function_periodically'] = function(block) {
   const value_after = Blockly.Python.valueToCode(block, 'AFTER', Blockly.Python.ORDER_ATOMIC);
   const statement_do = Blockly.Python.statementToCode(block, 'DO');
   var funcName = getFuncName();
-  var code = `\ndef ${funcName}():\n${statement_do}\ntimers.append(Timer(-1)); timers[-1].init(period=${value_after}, mode=Timer.PERIODIC, callback=${funcName})`
+  var code = `\ndef ${funcName}():\n${statement_do}\ntimers.append(Timer(-1)); timers[-1].init(period=${value_after*1000}, mode=Timer.PERIODIC, callback=${funcName})`
 
   return code;
 }
