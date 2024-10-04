@@ -1,6 +1,6 @@
 # XRPCode
 
-A web code editor for the XRP robot using Blockly and micropython
+A web code editor for the XRP robot using Google's Blockly and micropython
 
 Features:
 * Code editor with Python syntax highlighting
