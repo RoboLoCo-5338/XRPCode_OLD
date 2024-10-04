@@ -14,3 +14,5 @@ Features:
     * Automatically connects XRP if it has connected to the page before
 
 Only Google Chrome and Microsoft Edge are officially supported by the WebSerial JavaScript API
+
+Modified by FRC Team 5338 Roboloco
