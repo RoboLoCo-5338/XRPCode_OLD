@@ -62,7 +62,7 @@ var onExportToEditor = (bytes) => {
 // Show pop-up containing IDE changelog every time showChangelogVersion changes
 // Update version string in index.html and play.html as well to match
 
-let response = await fetch("/lib/package.json");
+let response = await fetch("lib/package.json");
 response = await response.text();
 let jresp = JSON.parse(response);
 let v = jresp.version
