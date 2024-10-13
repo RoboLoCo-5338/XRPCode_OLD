@@ -231,6 +231,7 @@ var blocklyToolbox = {
                             "kind": "BLOCK",
                             "type": "pestolink_get_axis",
                             "inputs": {
+                                "num": {"shadow": {"type": "math_number", "fields": {"num": "0"}}}, 
                                 "controller_num": {"shadow": {"type": "math_number", "fields": {"controller_num": "0"}}}
                             }
                         },
@@ -301,6 +302,7 @@ var blocklyToolbox = {
                             "kind": "BLOCK",
                             "type": "pestolink_get_button",
                             "inputs":{
+                                "num": {"shadow": {"type": "math_number", "fields": {"num": "0"}}}, 
                                 "controller_num": {"shadow": {"type": "math_number", "fields": {"controller_num": "0"}}}
                             }
                         }
