@@ -636,6 +636,7 @@ Blockly.Blocks['pestolink_get_controller_left_x']={
     this.setColour(60);
     this.setTooltip("");
     this.setHelpUrl("");
+    this.setInputsInline(true)
   }
 };
 
@@ -651,6 +652,7 @@ Blockly.Blocks['pestolink_get_controller_left_y']={
     this.setColour(60);
     this.setTooltip("");
     this.setHelpUrl("");
+    this.setInputsInline(true)
   }
 };
 
@@ -666,6 +668,7 @@ Blockly.Blocks['pestolink_get_controller_right_x']={
     this.setColour(60);
     this.setTooltip("");
     this.setHelpUrl("");
+    this.setInputsInline(true)
   }
 };
 
@@ -681,6 +684,7 @@ Blockly.Blocks['pestolink_get_controller_right_y']={
     this.setColour(60);
     this.setTooltip("");
     this.setHelpUrl("");
+    this.setInputsInline(true)
   }
 };
 
@@ -696,6 +700,7 @@ Blockly.Blocks['pestolink_is_a_pressed']={
     this.setColour(60);
     this.setTooltip("");
     this.setHelpUrl("");
+    this.setInputsInline(true)
   }
 };
 
@@ -711,6 +716,7 @@ Blockly.Blocks['pestolink_is_b_pressed']={
     this.setColour(60);
     this.setTooltip("");
     this.setHelpUrl("");
+    this.setInputsInline(true)
   }
 };
 
@@ -726,6 +732,7 @@ Blockly.Blocks['pestolink_is_x_pressed']={
     this.setColour(60);
     this.setTooltip("");
     this.setHelpUrl("");
+    this.setInputsInline(true)
   }
 };
 
@@ -741,6 +748,7 @@ Blockly.Blocks['pestolink_is_y_pressed']={
     this.setColour(60);
     this.setTooltip("");
     this.setHelpUrl("");
+    this.setInputsInline(true)
   }
 };
 
@@ -756,6 +764,7 @@ Blockly.Blocks['pestolink_is_right_bumper_pressed']={
     this.setColour(60);
     this.setTooltip("");
     this.setHelpUrl("");
+    this.setInputsInline(true)
   }
 };
 
@@ -771,6 +780,7 @@ Blockly.Blocks['pestolink_is_left_bumper_pressed']={
     this.setColour(60);
     this.setTooltip("");
     this.setHelpUrl("");
+    this.setInputsInline(true)
   }
 };
 
@@ -786,6 +796,7 @@ Blockly.Blocks['pestolink_is_right_trigger_pressed']={
     this.setColour(60);
     this.setTooltip("");
     this.setHelpUrl("");
+    this.setInputsInline(true)
   }
 };
 
@@ -801,6 +812,7 @@ Blockly.Blocks['pestolink_is_left_trigger_pressed']={
     this.setColour(60);
     this.setTooltip("");
     this.setHelpUrl("");
+    this.setInputsInline(true)
   }
 };
 
