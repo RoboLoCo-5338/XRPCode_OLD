@@ -106,7 +106,7 @@ class PestoLinkAgent:
         ((self._handle_tx, self._handle_rx),) = self._ble.gatts_register_services((_UART_SERVICE,))
         self._connections = set()
         self._payload = advertising_payload(name=sliced_name, services=[_UART_UUID])
-        self._byte_list = [1,127,127,127,127,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        self._byte_list = [[1,127,127,127,127,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]]
         self._advertise()
 
     def _irq(self, event, data):
@@ -140,29 +140,37 @@ class PestoLinkAgent:
 
     def on_write(self, value):
         _raw_byte_list = [byte for byte in value]
-        if (_raw_byte_list[0] == 0x01):
-            self._byte_list = _raw_byte_list
+        if(len(_raw_byte_list)==19):
+            while (_raw_byte_list[18]>len(self._byte_list)):
+                self._byte_list.append(_raw_byte_list[:-1])
+            if (_raw_byte_list[0] == 0x01):
+                self._byte_list[_raw_byte_list[18]] = _raw_byte_list[:-1]
+            else:
+                self._byte_list[_raw_byte_list[18]] = [1,127,127,127,127,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         else:
-            self._byte_list = [1,127,127,127,127,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            if (_raw_byte_list[0] == 0x01):
+                self._byte_list[0] = _raw_byte_list
+            else:
+                self._byte_list[0] = [1,127,127,127,127,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         
-    def get_raw_axis(self, axis_num):
-        if axis_num < 0 or axis_num > 3 or self._byte_list == None:
+    def get_raw_axis(self, axis_num, controller_num=0):
+        if axis_num < 0 or axis_num > 3 or controller_num+1>len(self._byte_list) or self._byte_list[controller_num] == None:
             return 127
         else:
-            return self._byte_list[1 + axis_num]
+            return self._byte_list[controller_num][1 + axis_num]
 
-    def get_axis(self, axis_num):
-        raw_axis = self.get_raw_axis(axis_num)
+    def get_axis(self, axis_num,  controller_num=0):
+        raw_axis = self.get_raw_axis(axis_num, controller_num)
         if raw_axis == 127:
             return 0
         else:
             return (raw_axis / 127.5) - 1
         
-    def get_button(self, button_num):
-        if self._byte_list == None:
+    def get_button(self, button_num,  controller_num=0):
+        if controller_num+1>len(self._byte_list) or self._byte_list[controller_num] == None:
             return False
         
-        raw_buttons = (self._byte_list[6] << 8) + self._byte_list[5]
+        raw_buttons = (self._byte_list[controller_num][6] << 8) + self._byte_list[controller_num][5]
         if ((raw_buttons >> (button_num)) & 0x01):
             return True
         else:
