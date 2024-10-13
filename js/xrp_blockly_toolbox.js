@@ -201,25 +201,37 @@ var blocklyToolbox = {
                     "contents": [
                         {
                             "kind": "BLOCK",
-                            "type": "pestolink_get_controller_left_x"
+                            "type": "pestolink_get_controller_left_x",
+                            "inputs":{
+                                "controller_num": {"shadow": {"type": "math_number", "fields": {"controller_num": "0"}}}
+                            }
                         },
                         {
                             "kind": "BLOCK",
-                            "type": "pestolink_get_controller_left_y"
+                            "type": "pestolink_get_controller_left_y",
+                            "inputs":{
+                                "controller_num": {"shadow": {"type": "math_number", "fields": {"controller_num": "0"}}}
+                            }
                         },
                         {
                             "kind": "BLOCK",
-                            "type": "pestolink_get_controller_right_x"
+                            "type": "pestolink_get_controller_right_x",
+                            "inputs":{
+                                "controller_num": {"shadow": {"type": "math_number", "fields": {"controller_num": "0"}}}
+                            }
                         },
                         {
                             "kind": "BLOCK",
-                            "type": "pestolink_get_controller_right_y"
+                            "type": "pestolink_get_controller_right_y",
+                            "inputs":{
+                                "controller_num": {"shadow": {"type": "math_number", "fields": {"controller_num": "0"}}}
+                            }
                         },
                         {
                             "kind": "BLOCK",
                             "type": "pestolink_get_axis",
                             "inputs": {
-                                "axis": {"shadow": {"type": "math_number", "fields": {"axis": "0", "controller_num":"0"}}}
+                                "controller_num": {"shadow": {"type": "math_number", "fields": {"controller_num": "0"}}}
                             }
                         },
                     ]
@@ -231,41 +243,65 @@ var blocklyToolbox = {
                     "contents": [
                         {
                             "kind": "BLOCK",
-                            "type": "pestolink_is_a_pressed"
+                            "type": "pestolink_is_a_pressed",
+                            "inputs":{
+                                "controller_num": {"shadow": {"type": "math_number", "fields": {"controller_num": "0"}}}
+                            }
                         },
                         {
                             "kind": "BLOCK",
-                            "type": "pestolink_is_b_pressed"
+                            "type": "pestolink_is_b_pressed",
+                            "inputs":{
+                                "controller_num": {"shadow": {"type": "math_number", "fields": {"controller_num": "0"}}}
+                            }
                         },
                         {
                             "kind": "BLOCK",
-                            "type": "pestolink_is_x_pressed"
+                            "type": "pestolink_is_x_pressed",
+                            "inputs":{
+                                "controller_num": {"shadow": {"type": "math_number", "fields": {"controller_num": "0"}}}
+                            }
                         },
                         {
                             "kind": "BLOCK",
-                            "type": "pestolink_is_y_pressed"
+                            "type": "pestolink_is_y_pressed",
+                            "inputs":{
+                                "controller_num": {"shadow": {"type": "math_number", "fields": {"controller_num": "0"}}}
+                            }
                         },
                         {
                             "kind": "BLOCK",
-                            "type": "pestolink_is_right_trigger_pressed"
+                            "type": "pestolink_is_right_trigger_pressed",
+                            "inputs":{
+                                "controller_num": {"shadow": {"type": "math_number", "fields": {"controller_num": "0"}}}
+                            }
                         },
                         {
                             "kind": "BLOCK",
-                            "type": "pestolink_is_left_trigger_pressed"
+                            "type": "pestolink_is_left_trigger_pressed",
+                            "inputs":{
+                                "controller_num": {"shadow": {"type": "math_number", "fields": {"controller_num": "0"}}}
+                            }
                         },
                         {
                             "kind": "BLOCK",
-                            "type": "pestolink_is_right_bumper_pressed"
+                            "type": "pestolink_is_right_bumper_pressed",
+                            "inputs":{
+                                "controller_num": {"shadow": {"type": "math_number", "fields": {"controller_num": "0"}}}
+                            }
                         },
                         {
                             "kind": "BLOCK",
-                            "type": "pestolink_is_left_bumper_pressed"
+                            "type": "pestolink_is_left_bumper_pressed",
+                            "inputs":{
+                                "controller_num": {"shadow": {"type": "math_number", "fields": {"controller_num": "0"}}}
+                            }
                         },
                         {
                             "kind": "BLOCK",
                             "type": "pestolink_get_button",
                             "inputs":{
-                                "num": {"shadow": {"type": "math_number", "fields": {"num": "0", "controller_num":"0"}}}
+                                "controller_num": {"shadow": {"type": "math_number", "fields": {"controller_num": "0"}}}
                             }
                         }
                     ]
