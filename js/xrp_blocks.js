@@ -762,6 +762,10 @@ Blockly.Blocks['pestolink_get_axis'] = {
       .appendField("Get Pesto Link Axis");
     this.appendValueInput("axis")
       .setCheck("Number")
+    this.appendDummyInput()
+      .appendField("On Controller");
+    this.appendValueInput("controller_num")
+      .setCheck("Number");
     this.setInputsInline(true);
     this.setOutput(true, null);
     this.setColour(60);
@@ -776,6 +780,10 @@ Blockly.Blocks['pestolink_get_button'] = {
       .appendField("Is Pesto Link Button Pressed");
     this.appendValueInput("num")
       .setCheck("Number")
+    this.appendDummyInput()
+      .appendField("On Controller");
+    this.appendValueInput("controller_num")
+      .setCheck("Number");
     this.setInputsInline(true);
     this.setOutput(true, null);
     this.setColour(60);

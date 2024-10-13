@@ -498,7 +498,8 @@ Blockly.Python['pestolink_get_axis'] = function (block) {
   PY.definitions_['import_random']='import random\n ';
   PY.definitions_['import_pestolink']='\nfrom machine import Pin\nimport bluetooth\nfrom pestolink import PestoLinkAgent\n\nletters_passcode="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"\nrobot_name = ("".join(random.choice(letters_passcode) for i in range(5)))\npestolink = PestoLinkAgent(robot_name)\nprint("The name of your robot is " + robot_name)'
   var axis = Blockly.Python.valueToCode(block, 'axis', Blockly.Python.ORDER_ATOMIC);
-  var code = `pestolink.get_axis(${axis})`;
+  var controller = Blockly.Python.valueToCode(block, 'controller_num', Blockly.Python.ORDER_ATOMIC);
+  var code = `pestolink.get_axis(${axis}, ${controller})`;
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.Python.ORDER_NONE];
 };
@@ -508,7 +509,8 @@ Blockly.Python['pestolink_get_button'] = function (block) {
   PY.definitions_['import_random']='import random\n ';
   PY.definitions_['import_pestolink']='\nfrom machine import Pin\nimport bluetooth\nfrom pestolink import PestoLinkAgent\n\nletters_passcode="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"\nrobot_name = ("".join(random.choice(letters_passcode) for i in range(5)))\npestolink = PestoLinkAgent(robot_name)\nprint("The name of your robot is " + robot_name)'
   var button = Blockly.Python.valueToCode(block, 'num', Blockly.Python.ORDER_ATOMIC);
-  var code = `pestolink.get_button(${button})`;
+  var controller = Blockly.Python.valueToCode(block, 'controller_num', Blockly.Python.ORDER_ATOMIC);
+  var code = `pestolink.get_button(${button}, ${controller})`;
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.Python.ORDER_NONE];
 };
