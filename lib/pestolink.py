@@ -141,7 +141,7 @@ class PestoLinkAgent:
     def on_write(self, value):
         _raw_byte_list = [byte for byte in value]
         if(len(_raw_byte_list)==19):
-            while (_raw_byte_list[18]>len(self._byte_list)):
+            while (_raw_byte_list[18]>len(self._byte_list)-1):
                 self._byte_list.append(_raw_byte_list[:-1])
             if (_raw_byte_list[0] == 0x01):
                 self._byte_list[_raw_byte_list[18]] = _raw_byte_list[:-1]
