@@ -376,7 +376,7 @@ Blockly.Python['python_code'] = function(block) {
 
 Blockly.Python['run_function_periodically'] = function(block) {
   // TODO: change Order.ATOMIC to the correct operator precedence strength
-  PY.definitions_['import_timer'] = 'from machine import Timer \n\n timers=[]';
+  PY.definitions_['import_timer'] = 'from machine import Timer \n\ntimers=[]';
   const value_after = Blockly.Python.valueToCode(block, 'AFTER', Blockly.Python.ORDER_ATOMIC);
   const statement_do = Blockly.Python.statementToCode(block, 'DO');
   var funcName = getFuncName();
